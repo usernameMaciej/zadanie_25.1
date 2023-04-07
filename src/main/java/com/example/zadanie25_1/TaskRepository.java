@@ -13,6 +13,8 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @Modifying
     @Transactional
     void addTask(String title, String description, LocalDateTime startTime, LocalDateTime completionTime);
+
     List<Task> findTasksByCompletionTimeIsNotNull();
+
     List<Task> findAllByOrderByCompletionTimeDesc();
 }
