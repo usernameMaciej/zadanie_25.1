@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+</head>
+<body>
+
+<h1 style="text-align: center; margin: auto; width: 400px" >Wszystkie zadania</h1>
+<div>
+    <a href="/add">Dodaj nowe zadanie</a>
+    <a href="/edit">Edytuj zadanie</a>
+</div>
+<table class="table" style="margin: auto; width: 400px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Tytuł</th>
+        <th>Opis</th>
+        <th>Start zadania</th>
+        <th>Koniec zadania</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task: ${allTasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.startTime}"></td>
+        <td th:text="${task.completionTime}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
