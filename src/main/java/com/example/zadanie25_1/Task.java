@@ -13,16 +13,18 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime startTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime completionTime;
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     public Task() {
     }
 
-    public Task(String title, String description, LocalDateTime startTime, LocalDateTime completionTime, Category category) {
+    public Task(Long id, String title, String description, LocalDateTime startTime, LocalDateTime completionTime, Category category) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.startTime = startTime;

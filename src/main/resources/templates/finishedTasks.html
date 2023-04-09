@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania do zrobienia</title>
+</head>
+<body>
+<h1 style="text-align: center; margin: auto; width: 400px">Przerobione zadania</h1>
+<div style="text-align: center; margin: auto; width: 400px">
+<a href="/">Powrót do strony głównej z wszystkimi zadaniami</a>
+</div>
+<table class="table" style="text-align: center; margin: auto; width: 400px">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Tytuł</th>
+    <th>Opis</th>
+    <th>Start zadania</th>
+    <th>Koniec zadania</th>
+    <th>Kategoria</th>
+    <th>Edytuj</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="task: ${finishedTasks}">
+    <td th:text="${task.id}"></td>
+    <td th:text="${task.title}"></td>
+    <td th:text="${task.description}"></td>
+    <td th:text="${#temporals.format(task.startTime, 'yyyy-MM-dd HH:mm')}"></td>
+    <td th:text="${#temporals.format(task.completionTime, 'yyyy-MM-dd HH:mm')}"></td>
+    <td th:text="${task.category.getPlTranslation()}"></td>
+    <td><a th:href="'/edit/' + ${task.id}">Edytuj</a></td>
+  </tr>
+  </tbody>
+
+</table>
+</body>
+</html>
